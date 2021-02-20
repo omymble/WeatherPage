@@ -29,7 +29,7 @@
     margin: 0;
 }
 
-.subtitle-big {
+.subtitle__big {
     font-size: 37px;
 }
 
@@ -56,24 +56,23 @@
 
 body {
     margin: 0;
+    padding: 15px 150px;
     font-family: 'Roboto', Arial, serif;
     background-color: #FFFFFF;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
+/*.container {*/
+/*    max-width: 1000px;*/
+/*    margin: 0 auto;*/
+/*}*/
 
 .header {
     display: flex;
-    align-items: flex-end;
-    margin-bottom: 40px;
-    height: 100px;
-}
-
-.header > *{
-    margin: 0 150px 0 0;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 40px;
+    max-width: 700px;
+    padding: 40px 15px 0;
 }
 
 .header__button {
@@ -86,8 +85,11 @@ body {
 
 .current {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 40px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding: 0 15px;
 }
 
 .location {
@@ -95,25 +97,24 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
-    width: 300px;
+    width: 320px;
 }
 
 .location_temperature {
     display: flex;
-    justify-content: space-between;
 }
 
 .location_temperature > * {
-    margin: 0 0 20px;
+    margin: 20px 20px 20px 0;
     height: 100px;
 }
 
-.degree-big {
-    font-size: 90px;
+.degree__big {
+    font-size: 80px;
 }
 
 .details {
-    width: 400px;
+    width: 320px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -134,31 +135,40 @@ body {
 
 .favourite {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.favourite > * {
+    margin-bottom: 20px;
 }
 
 .favourite_item {
-    width: 400px;
+    width: 320px;
+    margin: 15px;
 }
 
-.favourite-list > ul {
+.favourite-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .favourite_new-city {
     display: flex;
-    justify-content: flex-end;
-}
-
-.favourite_new-city > * {
-    margin: 0 20px;
+    justify-content: space-between;
+    width: 320px;
 }
 
 .favourite_new-city__input {
     height: 36px;
+    width: 260px;
+    background-color: aliceblue;
 }
 
 .city-header {
@@ -166,4 +176,12 @@ body {
     height: 70px;
     justify-content: space-between;
     align-items: center;
+}
+
+.degree__small {
+    font-size: 25px;
+}
+
+.city-header > img {
+    height: 40px;
 }
