@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+    <link href="./styles/styles.css" rel="stylesheet">
+</head>
+<body>
+<header class="header container">
+    <h1 class="title">Погода здесь</h1>
+    <button class="header__button">Обновить</button>
+</header>
+
+<main class="main container">
+    <section class="current">
+        <div class="location">
+            <h2 class="subtitle subtitle-big">Saint-Petersburg</h2>
+            <div class="location_temperature">
+                <img class="icon icon-big" src="images/snow.svg" alt="snow">
+                <p class="degree degree-big">8&degC</p>
+            </div>
+        </div>
+        <ul class="details">
+            <li class="details_item">
+                <p class="text details_item__name">Ветер</p>
+                <p class="text details_item__value">Moderate breeze</p>
+            </li>
+            <li class="details_item">
+                <p class="text details_item__name">Облачность</p>
+                <p class="text details_item__value">Broken clouds</p>
+            </li>
+            <li class="details_item">
+                <p class="text details_item__name">Давление</p>
+                <p class="text details_item__value">1013 hpa</p>
+            </li>
+            <li class="details_item">
+                <p class="text details_item__name">Влажность</p>
+                <p class="text details_item__value">52 %</p>
+            </li>
+            <li class="details_item">
+                <p class="text details_item__name">Координты</p>
+                <p class="text details_item__value">(59.88, 30.42)</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="favourite">
+        <h1 class="title">Избранное</h1>
+        <div class="favourite_new-city">
+            <label class="favourite_new-city__label" for="new-city">
+                <input id="new-city" class="input favourite_new-city__input" type="text"
+                       name="" placeholder="Добавьте новый город">
+            </label>
+            <button class="button favourite_new-city_button">
+                <img src="./images/add.svg" alt="add">
+            </button>
+        </div>
+    </section>
+
+    <section class="favourite-list">
+        <ul>
+            <li class="favourite_item">
+                <div class="city-header">
+                    <h3 class="subtitle">Moscow</h3>
+                    <p class="city-header_temp">6 &deg C</p>
+                    <img src="./images/snow.svg" alt="snow">
+                    <button class="button city-header_button">
+                        <img src="images/clear.svg" alt="clear">
+                    </button>
+                </div>
+                <ul class="details">
+                    <li class="details_item">
+                        <p class="text details_item__name">Ветер</p>
+                        <p class="text details_item__value">Moderate breeze</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Облачность</p>
+                        <p class="text details_item__value">Broken clouds</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Давление</p>
+                        <p class="text details_item__value">1013 hpa</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Влажность</p>
+                        <p class="text details_item__value">52 %</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__value">(59.88, 30.42)</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>
