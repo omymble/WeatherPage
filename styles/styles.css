@@ -22,9 +22,6 @@
     font-style: normal;
     font-weight: bold;
     font-size: 27px;
-    /*line-height: 37px;*/
-    /*letter-spacing: -0.07em;*/
-    /*text-transform: uppercase;*/
     color: #06266F;
     margin: 0;
 }
@@ -58,6 +55,10 @@ body {
     margin: 0;
     font-family: 'Roboto', Arial, serif;
     background-color: #FFFFFF;
+}
+
+body > * {
+    min-width: 290px;
 }
 
 .header {
@@ -95,7 +96,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
-    width: 320px;
+    width: 290px;
 }
 
 .location_temperature {
@@ -112,7 +113,7 @@ body {
 }
 
 .details {
-    width: 320px;
+    width: 290px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -128,7 +129,7 @@ body {
     background-color: #6C8CD5;
     height: 34px;
     align-items: center;
-    width: 320px;
+    width: 290px;
 }
 
 .details_item p {
@@ -149,7 +150,7 @@ body {
 }
 
 .favourite_item {
-    width: 320px;
+    width: 290px;
     padding: 0 15px;
 }
 
@@ -163,12 +164,12 @@ body {
 
 .favourite_new-city {
     display: flex;
-    width: 320px;
+    width: 290px;
 }
 
 .favourite_new-city__input {
     height: 36px;
-    width: 252px;
+    width: 222px;
     background-color: aliceblue;
     margin-right: 20px;
 }
@@ -189,9 +190,12 @@ body {
 }
 
 
-@media screen and (min-width: 0px) and (max-width: 400px) {
+@media screen and (min-width: 0) and (max-width: 320px) {
+    .body * {
+        min-width: 320px;
+    }
     .header {
-        max-width: 350px;
+        max-width: 320px;
     }
     .header__button {
         display: none;
