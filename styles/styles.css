@@ -61,12 +61,17 @@ body > * {
     min-width: 290px;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1170px;
     margin: 0 auto 40px;
-    max-width: 700px;
     padding: 40px 15px 0;
 }
 
@@ -86,7 +91,6 @@ body > * {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 700px;
     margin: 0 auto 40px;
     padding: 0 15px;
 }
@@ -190,7 +194,7 @@ body > * {
 }
 
 
-@media screen and (min-width: 0) and (max-width: 320px) {
+@media screen and (min-width: 0) and (max-width: 425px) {
     .body * {
         min-width: 320px;
     }
@@ -208,6 +212,5 @@ body > * {
     }
     .header__button_mobile img {
         width: 50px;
-
     }
 }
