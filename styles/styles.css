@@ -91,6 +91,12 @@ body > * {
     display: none;
 }
 
+.loading {
+    height: 100px;
+    display: none;
+    margin: 20px auto;
+}
+
 .current {
     display: flex;
     flex-wrap: wrap;
@@ -202,16 +208,20 @@ body > * {
 .city-header > img {
     height: 40px;
 }
+.loading-fav {
+    height: 100px;
+    display: none;
+    margin: 20px auto;
+}
+/*.favourite_item>.details {
+    display: none;
+}*/
 
 
 @media screen and (min-width: 0) and (max-width: 640px) {
     .body * {
         min-width: 320px;
     }
-    /*.container {*/
-    /*    max-width: 290px;*/
-    /*    margin: 0 auto;*/
-    /*}*/
     .header {
         width: 320px;
         margin: 0 auto;
@@ -237,4 +247,12 @@ body > * {
         margin: 0 0 15px;
         width: 290px;
     }
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: flex;
 }

@@ -17,11 +17,12 @@
 </header>
 
 <main class="main container">
+    <img class="loading" src="images/cached.svg" alt="Wait pls">
     <section class="current">
         <div class="location">
             <h2 class="subtitle subtitle__big">Saint-Petersburg</h2>
             <div class="location_temperature">
-                <img class="icon icon__big" src="images/snow.svg" alt="snow">
+                <img class="icon icon__big" src="images/freeze.svg" alt="freeze">
                 <p class="degree degree__big">8 &degC</p>
             </div>
         </div>
@@ -43,7 +44,7 @@
                 <p class="text details_item__value">52 %</p>
             </li>
             <li class="details_item">
-                <p class="text details_item__name">Координты</p>
+                <p class="text details_item__name">Координаты</p>
                 <p class="text details_item__value">(59.88, 30.42)</p>
             </li>
         </ul>
@@ -54,7 +55,7 @@
         <form method="get" class="favourite_new-city">
             <label class="favourite_new-city__label" for="new-city">
                 <input id="new-city" class="input favourite_new-city__input" type="text"
-                       name="" placeholder="Добавьте новый город">
+                       name="text" placeholder="Добавьте новый город" required>
             </label>
             <button class="button favourite_new-city_button">
                 <img src="./images/add.svg" alt="add">
@@ -64,11 +65,78 @@
 
     <section>
         <ul class="favourite-list">
+            <template id="favourite-city-template">
+                <li class="favourite_item">
+                    <div class="city-header">
+                        <h3 class="subtitle">Moscow</h3>
+                        <p class="degree__small">6 &degC</p>
+                        <img src="./images/freeze.svg" alt="freeze">
+                        <button class="button city-header_button">
+                            <img src="images/clear.svg" alt="clear">
+                        </button>
+                    </div>
+                    <ul class="details">
+                        <li class="details_item">
+                            <p class="text details_item__name">Ветер</p>
+                            <p class="text details_item__value">Moderate breeze</p>
+                        </li>
+                        <li class="details_item">
+                            <p class="text details_item__name">Облачность</p>
+                            <p class="text details_item__value">Broken clouds</p>
+                        </li>
+                        <li class="details_item">
+                            <p class="text details_item__name">Давление</p>
+                            <p class="text details_item__value">1013 hpa</p>
+                        </li>
+                        <li class="details_item">
+                            <p class="text details_item__name">Влажность</p>
+                            <p class="text details_item__value">52 %</p>
+                        </li>
+                        <li class="details_item">
+                            <p class="text details_item__name">Координаты</p>
+                            <p class="text details_item__value">(59.88, 30.42)</p>
+                        </li>
+                    </ul>
+                </li>
+            </template>
+            <li class="favourite_item">
+                <div class="city-header">
+                    <h3 class="subtitle">Helsinki</h3>
+                    <p class="degree__small">6 &degC</p>
+                    <img src="./images/freeze.svg" alt="freeze">
+                    <button class="button city-header_button">
+                        <img src="images/clear.svg" alt="clear">
+                    </button>
+                </div>
+                <img class="loading-fav" src="images/cached.svg" alt="Wait pls">
+                <ul class="details">
+                    <li class="details_item">
+                        <p class="text details_item__name">Ветер</p>
+                        <p class="text details_item__value">Moderate breeze</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Облачность</p>
+                        <p class="text details_item__value">Broken clouds</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Давление</p>
+                        <p class="text details_item__value">1013 hpa</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Влажность</p>
+                        <p class="text details_item__value">52 %</p>
+                    </li>
+                    <li class="details_item">
+                        <p class="text details_item__name">Координаты</p>
+                        <p class="text details_item__value">(59.88, 30.42)</p>
+                    </li>
+                </ul>
+            </li>
             <li class="favourite_item">
                 <div class="city-header">
                     <h3 class="subtitle">Moscow</h3>
                     <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
+                    <img src="./images/freeze.svg" alt="freeze">
                     <button class="button city-header_button">
                         <img src="images/clear.svg" alt="clear">
                     </button>
@@ -91,7 +159,7 @@
                         <p class="text details_item__value">52 %</p>
                     </li>
                     <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__name">Координаты</p>
                         <p class="text details_item__value">(59.88, 30.42)</p>
                     </li>
                 </ul>
@@ -100,7 +168,7 @@
                 <div class="city-header">
                     <h3 class="subtitle">Helsinki</h3>
                     <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
+                    <img src="./images/freeze.svg" alt="freeze">
                     <button class="button city-header_button">
                         <img src="images/clear.svg" alt="clear">
                     </button>
@@ -123,7 +191,7 @@
                         <p class="text details_item__value">52 %</p>
                     </li>
                     <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__name">Координаты</p>
                         <p class="text details_item__value">(59.88, 30.42)</p>
                     </li>
                 </ul>
@@ -132,7 +200,7 @@
                 <div class="city-header">
                     <h3 class="subtitle">Moscow</h3>
                     <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
+                    <img src="./images/freeze.svg" alt="freeze">
                     <button class="button city-header_button">
                         <img src="images/clear.svg" alt="clear">
                     </button>
@@ -155,7 +223,7 @@
                         <p class="text details_item__value">52 %</p>
                     </li>
                     <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__name">Координаты</p>
                         <p class="text details_item__value">(59.88, 30.42)</p>
                     </li>
                 </ul>
@@ -164,7 +232,7 @@
                 <div class="city-header">
                     <h3 class="subtitle">Helsinki</h3>
                     <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
+                    <img src="./images/freeze.svg" alt="freeze">
                     <button class="button city-header_button">
                         <img src="images/clear.svg" alt="clear">
                     </button>
@@ -187,7 +255,7 @@
                         <p class="text details_item__value">52 %</p>
                     </li>
                     <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__name">Координаты</p>
                         <p class="text details_item__value">(59.88, 30.42)</p>
                     </li>
                 </ul>
@@ -196,7 +264,7 @@
                 <div class="city-header">
                     <h3 class="subtitle">Moscow</h3>
                     <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
+                    <img src="./images/freeze.svg" alt="freeze">
                     <button class="button city-header_button">
                         <img src="images/clear.svg" alt="clear">
                     </button>
@@ -219,71 +287,7 @@
                         <p class="text details_item__value">52 %</p>
                     </li>
                     <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
-                        <p class="text details_item__value">(59.88, 30.42)</p>
-                    </li>
-                </ul>
-            </li>
-            <li class="favourite_item">
-                <div class="city-header">
-                    <h3 class="subtitle">Helsinki</h3>
-                    <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
-                    <button class="button city-header_button">
-                        <img src="images/clear.svg" alt="clear">
-                    </button>
-                </div>
-                <ul class="details">
-                    <li class="details_item">
-                        <p class="text details_item__name">Ветер</p>
-                        <p class="text details_item__value">Moderate breeze</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Облачность</p>
-                        <p class="text details_item__value">Broken clouds</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Давление</p>
-                        <p class="text details_item__value">1013 hpa</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Влажность</p>
-                        <p class="text details_item__value">52 %</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
-                        <p class="text details_item__value">(59.88, 30.42)</p>
-                    </li>
-                </ul>
-            </li>
-            <li class="favourite_item">
-                <div class="city-header">
-                    <h3 class="subtitle">Moscow</h3>
-                    <p class="degree__small">6 &degC</p>
-                    <img src="./images/snow.svg" alt="snow">
-                    <button class="button city-header_button">
-                        <img src="images/clear.svg" alt="clear">
-                    </button>
-                </div>
-                <ul class="details">
-                    <li class="details_item">
-                        <p class="text details_item__name">Ветер</p>
-                        <p class="text details_item__value">Moderate breeze</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Облачность</p>
-                        <p class="text details_item__value">Broken clouds</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Давление</p>
-                        <p class="text details_item__value">1013 hpa</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Влажность</p>
-                        <p class="text details_item__value">52 %</p>
-                    </li>
-                    <li class="details_item">
-                        <p class="text details_item__name">Координты</p>
+                        <p class="text details_item__name">Координаты</p>
                         <p class="text details_item__value">(59.88, 30.42)</p>
                     </li>
                 </ul>
@@ -291,5 +295,6 @@
         </ul>
     </section>
 </main>
+<script src="./scripts/script.js"></script>
 </body>
 </html>
