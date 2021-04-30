@@ -1,25 +1,24 @@
 const API_KEY = '349adfe04241534f6ed0cfe457001bf0';
 const URL_REQUEST = 'https://api.openweathermap.org/data/2.5/weather?';
 
-let currentSection = document.querySelector('.current');
-let loadingImg = document.querySelector('.loading');
+let currentSection = document.body.querySelector('.current');
+let loadingImg = document.body.querySelector('.loading');
 
 const defaultRequest = {
-    lat: 35,
-    lon: 139,
+    lat: 51.5085,
+    lon: -0.1257,
     appid: API_KEY
 }
-
-let nameRequest = {
+let simpleRequest = {
     q: 'London',
+    lat: 51.5085,
+    lon: -0.1257,
     appid: API_KEY
 }
 
-let coordRequest = {
-    lat: 35,
-    lon: 139,
-    appid: API_KEY
-}
+const makeURL = (obj) => { return URL_REQUEST + new URLSearchParams(obj).toString() }
+const iconUrl = (code) => { return `http://openweathermap.org/img/wn/${code}@2x.png` }
+const convertDeg = (temperature) => { return Math.round(temperature - 273.15) }
 
 //buttons
 let updateLocation = document.body.querySelector('.header__button');
@@ -38,48 +37,6 @@ let newText = {
     pressure: '1013 hpa',
     humidity: '52%',
     coord: '(59.88, 30.42)'
-}
-
-function iconUrl(code) {
-    /*let iconCode = '01d';
-    let iconid = Math.trunc(code);
-    switch (iconid) {
-        case 2:
-            iconCode = '11d';
-            break;
-        case 3:
-            iconCode = '09d';
-            break;
-        case 5: {
-            if (code < 511)
-                iconCode = '10d';
-            else if (code > 511)
-                iconCode = '09d';
-            else
-                iconCode = '13d';
-            break;
-        }
-        case 6:
-            iconCode = '13d';
-            break;
-        case 7:
-            iconCode = '50d';
-            break;
-        case 8: {
-            if (code === 800)
-                iconCode = '01d';
-            else if (code === 801)
-                iconCode = '02d';
-            else if (code === 802)
-                iconCode = '03d';
-            else if (code === 803 || code === 804)
-                iconCode = '04d';
-            break;
-        }
-        default:
-            iconCode = '01d';
-    }*/
-    return `http://openweathermap.org/img/wn/${code}@2x.png`
 }
 
 
@@ -102,7 +59,10 @@ function gotFavourite() {
     loadingImg.classList.remove('visible');
 }
 
-function addNewCurrentCity(data) {
+//data - response in JSON
+function addCurrentToDOM(data) {
+    console.log('our json');
+    console.log(data);
     newText.wind = data.wind.speed + 'm/s';
     newText.cloudy = data.clouds.all + '%';
     newText.pressure = data.main.pressure + 'hpa';
@@ -112,10 +72,10 @@ function addNewCurrentCity(data) {
     newHeader.city = data.name;
     newHeader.icon = data.weather.icon;
     newHeader.temperature = Math.round((data.weather.temperature - 32) * 5 / 9);
+    return data;
     // console.log('newText', newText);
     // console.log('newHeader', newHeader);
 }
-
 
 //get your current-position weather
 function currentGeo() {
@@ -124,48 +84,41 @@ function currentGeo() {
     }
     else {
         alert('Impossible to get your geolocation');
-        addNewCurrentCity(getByCoord(defaultRequest));
+        // addCurrentToDOM(getCityJSON(makeURL(defaultRequest)));
     }
 }
-const success = (position) => {
-    coordRequest.lat = position.coords.latitude;
-    coordRequest.lon = position.coords.longitude;
-    let resultData = addNewCurrentCity(getByCoord(coordRequest));
-
-    console.log('successResult', resultData);
+const success = async (position) => {
+    if (simpleRequest.q) {delete simpleRequest.q}
+    simpleRequest.lat = position.coords.latitude;
+    simpleRequest.lon = position.coords.longitude;
+    let response = await getCityJSON(makeURL(simpleRequest));
+    //addCurrentToDOM()
+    console.log('successResult', response);
 }
 const error = (err) => {
     alert(`ERROR(${err.code}): ${err.message}`);
-    addNewCurrentCity(getByCoord(defaultRequest));
+    addCurrentToDOM(makeURL(defaultRequest));
+    console.log(`ERROR(${err.code}): ${err.message}`);
 }
 
-function getWeather(url) {
-    return fetch(url)
-        .then((response => {
-            return response.json();
-        }))
-        .then((data => {
-            return data;
-        }))
-        .catch((error) => {
-            alert(error.message);
-            return Promise.reject();
-        })
+
+//get json information about a city by url
+const getCityJSON = async (stringUrl) => {
+    //add loader
+    try {
+        let response = await fetch(stringUrl);
+        if (response.status !== 200) {
+            throw new Error(`error ${response.statusText}`);
+        }
+        return response.json();
+    } catch (err) {
+        alert(err.message);
+    }
 }
 
-function getByCoord(coordRequest) {
-    let urlParams = new URLSearchParams(coordRequest).toString();
-    let urlByCoord = URL_REQUEST + urlParams;
-    return getWeather(urlByCoord);
+function favourites() {
+    let cityList = JSON.parse(localStorage.getItem('favCities'));
 }
-
-function getByName(nameRequest) {
-    nameRequest.q =  document.querySelector('input').value;
-    let urlParams = new URLSearchParams(nameRequest).toString();
-    let urlByName = URL_REQUEST + urlParams;
-    return getWeather(urlByName);
-}
-
 
 function getListOfFavourite() {
     myStorage = window.localStorage;
@@ -177,8 +130,6 @@ function getListOfFavourite() {
 }
 
 
-
 updateLocation.addEventListener('click', async ()=> {
     await currentGeo();
-    // console.log('requestResult', requestResult);
 });
