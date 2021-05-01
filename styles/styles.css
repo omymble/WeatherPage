@@ -21,13 +21,13 @@
     font-family: "Roboto", Arial, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 20px;
     color: #06266F;
     margin: 0;
 }
 
 .subtitle__big {
-    font-size: 37px;
+    font-size: 30px;
 }
 
 .button {
@@ -93,8 +93,9 @@ body > * {
 
 .loading {
     height: 100px;
-    display: none;
-    margin: 20px auto;
+    /*display: none;*/
+    margin: 0 auto 40px;
+    padding: 0 15px;
 }
 
 .current {
@@ -123,7 +124,7 @@ body > * {
 }
 
 .degree__big {
-    font-size: 80px;
+    font-size: 55px;
 }
 
 .details {
@@ -150,7 +151,7 @@ body > * {
     margin: 0 4px;
 }
 
-.favourite {
+.favourite_header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -159,7 +160,7 @@ body > * {
     padding: 0 15px;
 }
 
-.favourite > * {
+.favourite_header > * {
     margin-bottom: 20px;
 }
 
@@ -174,7 +175,6 @@ body > * {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /*grid-template-columns: repeat(auto-fill,minmax(320px, 1fr));*/
 }
 
 .favourite-list > * {
@@ -202,21 +202,24 @@ body > * {
 }
 
 .degree__small {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .city-header > img {
     height: 40px;
 }
-.loading-fav {
+/*.loading-fav {
     height: 100px;
-    display: none;
+    !*display: none;*!
     margin: 20px auto;
-}
+}*/
 /*.favourite_item>.details {
     display: none;
 }*/
 
+.invisible {
+    display: none;
+}
 
 @media screen and (min-width: 0) and (max-width: 640px) {
     .body * {
@@ -238,21 +241,23 @@ body > * {
     .header__button_mobile img {
         width: 50px;
     }
-    .current, .favourite, .favourite-list {
+    .current, .favourite_header, .favourite-list {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .favourite h2 {
+    .favourite_header h2 {
         margin: 0 0 15px;
         width: 290px;
     }
+/*    .loading-geo {
+        display: block;
+    }*/
+    .loading-fav {
+        display: block;
+    }
+    .invisible {
+        display: none;
+    }
 }
 
-.invisible {
-    display: none;
-}
-
-.visible {
-    display: flex;
-}
