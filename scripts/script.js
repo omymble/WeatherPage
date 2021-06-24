@@ -23,14 +23,10 @@ const setLoadingCurrent = (flag) => {
     let geoLoader = document.querySelector('.loading-geo');
     if (!flag) {
         currentSection.classList.remove('invisible');
-        // geoLoader.classList.remove('visible');
-        // currentSection.classList.add('visible');
         geoLoader.classList.add('invisible');
     } else {
-        // currentSection.classList.remove('visible');
         geoLoader.classList.remove('invisible');
         currentSection.classList.add('invisible');
-        // geoLoader.classList.add('visible');
     }
 }
 
@@ -38,14 +34,10 @@ const setLoadingFav = (flag) => {
     let favLoader = document.querySelector('.loading-fav');
     if (!flag) {
         favouriteSection.classList.remove('invisible');
-        // favLoader.classList.remove('visible');
-        // favouriteSection.classList.add('visible');
         favLoader.classList.add('invisible');
     } else {
-        // favouriteSection.classList.remove('visible');
         favLoader.classList.remove('invisible');
         favouriteSection.classList.add('invisible');
-        // favLoader.classList.add('visible');
     }
 }
 
